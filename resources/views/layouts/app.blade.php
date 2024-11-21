@@ -16,60 +16,87 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <style>
-    /* General container styling */
-    .content-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    <style>
+    /* Contenedor principal del blog */
+    .blog-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 20px;
     }
 
-    /* Card styling */
-    .card {
-        width: 100%;
-        max-width: 500px;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        overflow: hidden;
-        transition: transform 0.2s, box-shadow 0.2s;
-        background-color: #fff;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .card-img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .card-body {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card-title {
-        font-size: 22px;
-        font-weight: 600;
-        margin-bottom: 15px;
+    /* Título del blog */
+    .blog-title {
+        font-size: 36px;
         color: #333;
         text-align: center;
+        margin-bottom: 20px;
     }
 
-    .card-text {
+    /* Botón para crear una nueva publicación */
+    .create-post-btn {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 15px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
         font-size: 16px;
-        color: #555;
-        line-height: 1.6;
-        text-align: center;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
     }
+
+    .create-post-btn:hover {
+        background-color: #45a049;
+    }
+
+    /* Contenedor de las publicaciones */
+    .posts-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    /* Tarjetas de las publicaciones */
+    .post-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        width: 300px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .post-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Título de cada publicación */
+    .post-title {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    /* Imagen de la publicación */
+    .post-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    /* Descripción de la publicación */
+    .post-description {
+        font-size: 16px;
+        color: #d60606;
+        margin-bottom: 10px;
+    }
+
 
     .btn {
         margin-top: 15px;
@@ -84,7 +111,7 @@
     }
 
     .btn:hover {
-        background-color: #0056b3;
+        background: linear-gradient(45deg, #15e6b1, #15bea8);
     }
 </style>
 
@@ -107,6 +134,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

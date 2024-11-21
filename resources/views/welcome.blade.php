@@ -66,7 +66,7 @@
             font-size: 18px;
             padding: 15px 30px;
             color: white;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            background: linear-gradient(45deg, #eb40a3, #ee135c);
             border: none;
         }
 
